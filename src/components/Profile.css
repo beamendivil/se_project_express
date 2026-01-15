@@ -1,0 +1,34 @@
+.profile {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 40px 20px;
+  display: flex;
+  gap: 20px;
+  min-height: calc(100vh - 180px); /* Adjust based on header/footer height */
+}
+
+.profile__sidebar {
+  flex-shrink: 0;
+  width: auto;
+}
+
+.profile__clothes-section {
+  flex: 1;
+  min-width: 0; /* Prevent overflow */
+}
+
+@media (max-width: 768px) {
+  .profile {
+    flex-direction: column;
+    padding: 20px 16px;
+    gap: 0;
+  }
+
+  .profile__sidebar {
+    width: 100%;
+  }
+
+  .profile__clothes-section {
+    width: 100%;
+  }
+}

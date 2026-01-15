@@ -1,0 +1,106 @@
+/* Import normalize.css for cross-browser consistency */
+@import "./vendor/normalize.css";
+
+/* Import Cabinet Grotesk font */
+@import url("https://fonts.googleapis.com/css2?family=Cabinet+Grotesk:wght@400;500;700;900&display=swap");
+
+/* 
+TYPOGRAPHY SYSTEM
+=================
+Your UI text styles defined:
+
+1. UI text style 1 / 20-24 Bold / Cabinet Grotesk
+   - Use for: Main headings, important buttons, primary text
+   - CSS: font-size: 20px; line-height: 24px; font-weight: 700;
+   - Class: .text-style-1
+
+2. UI text style 2 / 16-20 Medium / Cabinet Grotesk  
+   - Use for: Body text, secondary information, form labels
+   - CSS: font-size: 16px; line-height: 20px; font-weight: 500;
+   - Class: .text-style-2
+
+3. UI text style 2 Bold / 16-20 Bold / Cabinet Grotesk
+   - Use for: Emphasized body text, form labels, important info
+   - CSS: font-size: 16px; line-height: 20px; font-weight: 700;
+   - Class: .text-style-2-bold
+
+USAGE EXAMPLES:
+- Header date/location: text-style-1
+- Add clothes button: text-style-1  
+- User name: text-style-1
+- Card names: text-style-2-bold
+- Modal text: text-style-2
+- Footer text: text-style-2
+*/
+
+/* Reset and base styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Cabinet Grotesk", -apple-system, BlinkMacSystemFont, "Segoe UI",
+    Roboto, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Typography System based on your UI text styles */
+
+/* UI text style 1 / 20-24 Bold / Cabinet Grotesk */
+.text-style-1 {
+  font-family: "Cabinet Grotesk", sans-serif;
+  font-size: 20px;
+  line-height: 24px;
+  font-weight: 700; /* Bold */
+}
+
+/* UI text style 2 / 16-20 Medium / Cabinet Grotesk */
+.text-style-2 {
+  font-family: "Cabinet Grotesk", sans-serif;
+  font-size: 16px;
+  line-height: 20px;
+  font-weight: 500; /* Medium */
+}
+
+/* UI text style 2 Bold / 16-20 Bold / Cabinet Grotesk */
+.text-style-2-bold {
+  font-family: "Cabinet Grotesk", sans-serif;
+  font-size: 16px;
+  line-height: 20px;
+  font-weight: 700; /* Bold */
+}
+
+/* Additional utility classes for consistency */
+.font-cabinet {
+  font-family: "Cabinet Grotesk", sans-serif;
+}
+
+.font-bold {
+  font-weight: 700;
+}
+
+.font-medium {
+  font-weight: 500;
+}
+
+.font-regular {
+  font-weight: 400;
+}
+
+.font-black {
+  font-weight: 900;
+}
+
+/* Remove default button and input styles */
+button {
+  font-family: inherit;
+  cursor: pointer;
+}
+
+input,
+textarea {
+  font-family: inherit;
+}

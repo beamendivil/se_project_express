@@ -1,0 +1,102 @@
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 56px;
+  height: 28px;
+  cursor: pointer;
+  border-radius: 14px;
+}
+
+.switch__box {
+  opacity: 0;
+  width: 0;
+  height: 0;
+  position: absolute;
+}
+
+.switch__slider {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #eeeeee;
+  border-radius: 14px;
+  transition: background-color 0.3s ease, opacity 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 6px;
+}
+
+.switch__slider:before {
+  content: "";
+  position: absolute;
+  height: 20px;
+  width: 20px;
+  left: 4px;
+  bottom: 4px;
+  background-color: #000000; /* This is correct, always black */
+  border-radius: 50%;
+  transition: transform 0.3s ease;
+  z-index: 2; /* Thumb is above track */
+}
+
+.switch__box:checked + .switch__slider:before {
+  transform: translateX(28px);
+}
+
+/* --- Hover effect --- */
+
+/* Hover when UNCHECKED (F) */
+.switch__box:not(:checked) + .switch__slider:hover:before {
+  transform: translateX(2px);
+}
+
+/* Hover when CHECKED (C) */
+.switch__box:checked + .switch__slider:hover:before {
+  transform: translateX(26px); /* CHANGED from 30px */
+}
+
+.switch__temp-f,
+.switch__temp-c {
+  font-family: "Cabinet Grotesk", sans-serif;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 1;
+  color: #333;
+  z-index: 1;
+  user-select: none;
+  transition: color 0.3s ease;
+}
+
+/* Default (Unchecked) State: 'F' is white */
+.switch__box:not(:checked) + .switch__slider .switch__temp-f {
+  color: white;
+  z-index: 3;
+}
+
+/* Checked State: 'C' is white */
+.switch__box:checked + .switch__slider .switch__temp-c {
+  color: white;
+  z-index: 3; /* Put active text ON TOP of thumb */
+}
+
+.switch__temp-f {
+  /* Nudge text to be centered in the thumb area */
+  margin-left: 0;
+  width: 20px; /* Match thumb width */
+  text-align: center;
+}
+
+.switch__temp-c {
+  /* Nudge text to be centered in the thumb area */
+  margin-right: 0;
+  width: 20px; /* Match thumb width */
+  text-align: center;
+}
+
+/* Focus styles for accessibility - subtle outline */
+.switch__box:focus + .switch__slider {
+  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.2);
+}
