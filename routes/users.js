@@ -1,13 +1,12 @@
-// routes/users.js
-// User routes: GET /users, GET /users/:userId, POST /users
+const router = require('express').Router();
+const { getCurrentUser, updateProfile } = require('../controllers/users');
 
-import express from 'express';
-import { getUsers, getUser, createUser } from '../controllers/users.js';
+// GET /users/me - Returns the currently logged-in user
+router.get('/me', getCurrentUser);
 
-const router = express.Router();
+// PATCH /users/me - Updates the currently logged-in user
+router.patch('/me', updateProfile);
 
-router.get('/', getUsers);
-router.get('/:userId', getUser);
-router.post('/', createUser);
-
-export default router;
+// ⚠️ CRITICAL: Do not use 'export default'. Do not use { router }.
+// It must be exactly this:
+module.exports = router;

@@ -1,21 +1,10 @@
-// routes/clothingItems.js
-// Clothing item routes: GET /items, POST /items, DELETE /items/:itemId
+const router = require('express').Router();
+const { createClothingItem, getClothingItems, deleteItem } = require('../controllers/clothingItems');
 
-import express from 'express';
-import {
-	getClothingItems,
-	createClothingItem,
-	deleteClothingItem,
-  likeClothingItem,
-  dislikeClothingItem,
-	} from '../controllers/clothingItems.js';
-
-const router = express.Router();
-
-router.get('/', getClothingItems);
+// POST /items
 router.post('/', createClothingItem);
-router.delete('/:itemId', deleteClothingItem);
-router.put('/:itemId/likes', likeClothingItem);
-router.delete('/:itemId/likes', dislikeClothingItem);
 
-export default router;
+// DELETE /items/:itemId
+router.delete('/:itemId', deleteItem);
+
+module.exports = router;

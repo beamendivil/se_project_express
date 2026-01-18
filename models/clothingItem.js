@@ -1,5 +1,5 @@
-import mongoose from 'mongoose';
-import validator from 'validator';
+const mongoose = require('mongoose');
+const validator = require('validator');
 
 const clothingItemSchema = new mongoose.Schema({
   name: {
@@ -11,7 +11,7 @@ const clothingItemSchema = new mongoose.Schema({
   weather: {
     type: String,
     required: true,
-    enum: ['hot', 'warm', 'cold'], // Must match your React app types
+    enum: ['hot', 'warm', 'cold'],
   },
   imageUrl: {
     type: String,
@@ -28,17 +28,11 @@ const clothingItemSchema = new mongoose.Schema({
     ref: 'user',
     required: true,
   },
-  likes: {
-    type: [mongoose.Schema.Types.ObjectId],
-    ref: 'user',
-    required: true,
-    default: [],
-  },
   createdAt: {
     type: Date,
-    required: true,
     default: Date.now,
   },
 });
 
-export default mongoose.model('clothingItem', clothingItemSchema);
+// ⚠️ THIS LINE WAS LIKELY MISSING OR WRONG
+module.exports = mongoose.model('clothingItem', clothingItemSchema);
